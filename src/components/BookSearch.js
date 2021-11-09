@@ -38,9 +38,28 @@ class BookSearch extends Component {
     }
   }
 
+  changeShelf = (book, status) => {
+    BooksAPI.update(book, status).then(books => {
+      if (book.shelf === 'none' && status !== 'none') {
+        this.setState(state => {
+          const newBooks = state.books.concat(book);
+          return { searchedBooks: newBooks }
+        })
+      }
+      const updatedBooks = this.state.searchedBooks.map(shelfedBook => {
+        if (shelfedBook.id === book.id) {
+          shelfedBook.shelf = status
+        }
+        return shelfedBook;
+      });
+      this.setState({
+        searchedBooks: updatedBooks,
+      });
+    });
+  }
 
   render() {
-    const { query, searchedBooks, result } = this.state
+    const { query, searchedBooks, result, onChangeShelf } = this.state
 
     return (
       <div>
@@ -61,7 +80,9 @@ class BookSearch extends Component {
             <button onClick={this.handleSearch}>Search </button>
           </div>
           <div>
-            <SearchedBooks searchedBooks={searchedBooks} result={result} />
+            <SearchedBooks searchedBooks={searchedBooks} result={result}
+              onChangeShelf={this.changeShelf}
+            />
           </div>
         </div>
       </div>

@@ -1,24 +1,19 @@
-# Contacts Project
+# MyReads Project
 
-This repo is a code-along with the first project in the [React Nanodegree program](https://www.udacity.com/course/react-nanodegree--nd019).
+This is a book tracking application which allows to user to search books, shelf them as "Currently Reading", "Want to Read" and "Read".
 
-Most of the commits in this repository correspond to videos in the program.
+# Installation and Starting the Server
 
-## Project Setup
-
-- Clone the project - `git clone https://github.com/udacity/reactnd-contacts-complete.git`
-- Install the dependencies - `npm install`
+* install all project dependencies with `npm install`
+* start the development server with `npm start` (at http://localhost:3000)
 
 ## Backend Server
 
-The backend server for this in-class project can be found [here](https://github.com/udacity/reactnd-contacts-server).
+The backend server is provided by Udacity [`BooksAPI.js`](src/BooksAPI.js).
 
-## Contributing
+## Search
 
-Because this is a code-along project and the commits correspond to specific videos in the program, we will not be accepting pull requests.
+Search part of the application is limitted with the given words:
 
-If you feel like there's a major problem, please open an issue to discuss the problem and potential resolution.
+'Android', 'Art', 'Artificial Intelligence', 'Astronomy', 'Austen', 'Baseball', 'Basketball', 'Bhagat', 'Biography', 'Brief', 'Business', 'Camus', 'Cervantes', 'Christie', 'Classics', 'Comics', 'Cook', 'Cricket', 'Cycling', 'Desai', 'Design', 'Development', 'Digital Marketing', 'Drama', 'Drawing', 'Dumas', 'Education', 'Everything', 'Fantasy', 'Film', 'Finance', 'First', 'Fitness', 'Football', 'Future', 'Games', 'Gandhi', 'Homer', 'Horror', 'Hugo', 'Ibsen', 'Journey', 'Kafka', 'King', 'Lahiri', 'Larsson', 'Learn', 'Literary Fiction', 'Make', 'Manage', 'Marquez', 'Money', 'Mystery', 'Negotiate', 'Painting', 'Philosophy', 'Photography', 'Poetry', 'Production', 'Programming', 'React', 'Redux', 'River', 'Robotics', 'Rowling', 'Satire', 'Science Fiction', 'Shakespeare', 'Singh', 'Swimming', 'Tale', 'Thrun', 'Time', 'Tolstoy', 'Travel', 'Ultimate', 'Virtual Reality', 'Web Development', 'iOS'
 
-## License
-
-MIT

@@ -47,6 +47,7 @@ class App extends React.Component {
         )} />
         <Route path='/search' render={() => (
           <BookSearch
+            onChangeShelf={this.changeShelf}
           />
         )} />
       </div>
