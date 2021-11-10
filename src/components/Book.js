@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 
 class Book extends Component {
   state = {
-    status: ''
+    status: this.props.book.shelf
   }
 
   handleChange = (event) => {
@@ -28,7 +28,9 @@ class Book extends Component {
                   <option value="">Please Select</option>
                   <option value="currentlyReading">Currently Reading</option>
                   <option value="read">Read</option>
-                  <option value="wantToRead">Want To Read </option>
+                  <option value="wantToRead">Want To Read</option>
+                  <option value="none">None</option>
+
                 </select>
               </div>
             </div>

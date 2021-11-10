@@ -27,6 +27,12 @@ class App extends React.Component {
       this.setState({
         books: updatedBooks,
       });
+      if(status === 'none'){
+        this.setState(state=>{
+          const newBooks = state.books.filter(removedBook => removedBook.id !== book.id);
+          return {books: newBooks}
+        })
+      }
     });
   }
 

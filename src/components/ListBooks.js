@@ -5,9 +5,9 @@ import { Link } from 'react-router-dom'
 class ListBooks extends Component {
   render() {
     const { books, onChangeShelf } = this.props
-    const currentlyReading = books.filter((b) => b.shelf == 'currentlyReading')
-    const read = books.filter((b) => b.shelf == 'read')
-    const wantToRead = books.filter((b) => b.shelf == 'wantToRead')
+    const currentlyReading = books.filter((b) => b.shelf === 'currentlyReading')
+    const read = books.filter((b) => b.shelf === 'read')
+    const wantToRead = books.filter((b) => b.shelf === 'wantToRead')
 
     return (
       <div className="list-books">

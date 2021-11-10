@@ -10,7 +10,6 @@ class BookSearch extends Component {
   state = {
     query: '',
     searchedBooks: [],
-    result: false,
   }
 
   updateQuery = (query) => {
@@ -18,24 +17,16 @@ class BookSearch extends Component {
       query: query.trim()
     }))
   }
-
-  handleChange = (event) => {
+  
+  handleSearch = (event) => {
     const query = event.target.value;
     this.setState({ query: query });
   }
 
-  handleSearch = () => {
+  componentDidUpdate(){
     BooksAPI.search(this.state.query).then((searchedBooks) => {
       this.setState({ searchedBooks })
     })
-    if (this.state.searchedBooks !== undefined) {
-      if (this.state.searchedBooks.length > 0) {
-        this.setState({ result: true });
-      }
-    }
-    else {
-      this.setState({ result: false });
-    }
   }
 
   changeShelf = (book, status) => {
@@ -74,13 +65,12 @@ class BookSearch extends Component {
                 type='text'
                 placeholder='Search by title or author'
                 value={query}
-                onChange={this.handleChange}
+                onChange={this.handleSearch}
               />
             </div>
-            <button onClick={this.handleSearch}>Search </button>
           </div>
           <div>
-            <SearchedBooks searchedBooks={searchedBooks} result={result}
+            <SearchedBooks searchedBooks={searchedBooks}
               onChangeShelf={this.changeShelf}
             />
           </div>

@@ -3,7 +3,7 @@ import Book from './Book'
 
 class SearchedBooks extends Component {
   render() {
-    const { searchedBooks, result, onChangeShelf } = this.props
+    const { searchedBooks, onChangeShelf } = this.props
 
     const showSearchedBooks = () => {
       try {
