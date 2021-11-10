@@ -27,10 +27,10 @@ class App extends React.Component {
       this.setState({
         books: updatedBooks,
       });
-      if(status === 'none'){
-        this.setState(state=>{
+      if (status === 'none') {
+        this.setState(state => {
           const newBooks = state.books.filter(removedBook => removedBook.id !== book.id);
-          return {books: newBooks}
+          return { books: newBooks }
         })
       }
     });
@@ -53,6 +53,7 @@ class App extends React.Component {
         )} />
         <Route path='/search' render={() => (
           <BookSearch
+            books={this.state.books}
             onChangeShelf={this.changeShelf}
           />
         )} />

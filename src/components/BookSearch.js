@@ -9,49 +9,16 @@ import PropTypes from 'prop-types';
 class BookSearch extends Component {
   state = {
     query: '',
-    searchedBooks: [],
   }
 
-  updateQuery = (query) => {
-    this.setState(() => ({
-      query: query.trim()
-    }))
-  }
-  
   handleSearch = (event) => {
-    const query = event.target.value;
+    const query = event.target.value.trim();
     this.setState({ query: query });
   }
 
-  componentDidUpdate(){
-    BooksAPI.search(this.state.query).then((searchedBooks) => {
-      this.setState({ searchedBooks })
-    })
-  }
-
-  changeShelf = (book, status) => {
-    this.props.onChangeShelf(book, status);
-    BooksAPI.update(book, status).then(books => {
-      if (book.shelf === 'none' && status !== 'none') {
-        this.setState(state => {
-          const newBooks = state.books.concat(book);
-          return { searchedBooks: newBooks }
-        })
-      }
-      const updatedBooks = this.state.searchedBooks.map(shelfedBook => {
-        if (shelfedBook.id === book.id) {
-          shelfedBook.shelf = status
-        }
-        return shelfedBook;
-      });
-      this.setState({
-        searchedBooks: updatedBooks,
-      });
-    });
-  }
-
   render() {
-    const { query, searchedBooks, result, onChangeShelf } = this.state
+    const { query, searchedBooks } = this.state
+    const { books, onChangeShelf } = this.props
 
     return (
       <div>
@@ -71,8 +38,9 @@ class BookSearch extends Component {
             </div>
           </div>
           <div>
-            <SearchedBooks searchedBooks={searchedBooks}
-              onChangeShelf={this.changeShelf}
+            <SearchedBooks query={query}
+              books={books}
+              onChangeShelf={onChangeShelf}
             />
           </div>
         </div>

@@ -25,7 +25,6 @@ class Book extends Component {
             }}>
               <div className="book-shelf-changer">
                 <select value={status} onChange={this.handleChange}>
-                  <option value="">Please Select</option>
                   <option value="currentlyReading">Currently Reading</option>
                   <option value="read">Read</option>
                   <option value="wantToRead">Want To Read</option>
