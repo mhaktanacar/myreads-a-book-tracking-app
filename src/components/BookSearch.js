@@ -30,6 +30,7 @@ class BookSearch extends Component {
   }
 
   changeShelf = (book, status) => {
+    this.props.onChangeShelf(book, status);
     BooksAPI.update(book, status).then(books => {
       if (book.shelf === 'none' && status !== 'none') {
         this.setState(state => {
