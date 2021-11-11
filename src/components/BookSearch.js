@@ -12,7 +12,7 @@ class BookSearch extends Component {
   }
 
   handleSearch = (event) => {
-    const query = event.target.value.trim();
+    const query = event.target.value;
     this.setState({ query: query });
   }
 
